@@ -92,7 +92,9 @@
   --spacing-huge: 120px;
   --spacing-xhuge: 144px;
   --spacing-xxhuge: 192px;
-  --type-base-font-family: adobe-clean, roboto, roboto-fallback, system-ui, sans-serif;
+  /* Real agilent.com/en uses Roboto as its primary typeface — put it first
+     so the whole site (not just the new agilent- blocks) picks it up. */
+  --type-base-font-family: roboto, adobe-clean, roboto-fallback, system-ui, sans-serif;
   --type-display-1-font: normal normal 300 6rem/7.2rem var(--type-base-font-family);
   --type-display-1-letter-spacing: 0.04em;
   --type-display-2-font: normal normal 300 4.8rem/5.6rem var(--type-base-font-family);
