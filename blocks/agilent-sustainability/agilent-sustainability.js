@@ -14,7 +14,9 @@ export default function decorate(block) {
     banner.append(bannerRow.querySelector('picture') || img);
   }
   const heading = document.createElement('h2');
-  const headingCell = [...(bannerRow?.children || [])].find((c) => !c.querySelector('img'));
+  // banner row is [image cell, heading cell] — take the heading cell positionally
+  // (both cells lack an <img> when no image is authored, so `.find()` would match the wrong one)
+  const headingCell = bannerRow?.children[1] || bannerRow?.children[0];
   heading.textContent = headingCell?.textContent.trim() || '';
   banner.append(heading);
 
