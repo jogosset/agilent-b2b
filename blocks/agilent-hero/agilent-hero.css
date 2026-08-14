@@ -25,21 +25,21 @@
   min-height: 320px;
 }
 
+/* Full-bleed background image per slide, with the text column left-aligned
+   and overlaid on top of it (matches the real agilent.com/en hero pattern). */
 .agilent-hero-slide {
   display: none;
-  grid-template-columns: 1fr;
-  align-items: stretch;
-  max-width: 1668px;
-  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
 }
 
 .agilent-hero-slide--active {
-  display: grid;
+  display: block;
 }
 
 .agilent-hero-slide-media {
-  order: -1;
-  aspect-ratio: 16 / 9;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
   background: linear-gradient(135deg, #eef2f5, #dbe3e8);
 }
@@ -50,6 +50,15 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* Left-to-right scrim so the overlaid text stays legible over any photo,
+   and over the placeholder pattern when no image has been authored yet. */
+.agilent-hero-slide-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgb(0 0 0 / 60%) 0%, rgb(0 0 0 / 32%) 45%, rgb(0 0 0 / 0%) 78%);
 }
 
 .agilent-hero-placeholder {
@@ -64,10 +73,16 @@
 }
 
 .agilent-hero-slide-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1668px;
+  min-height: 380px;
+  margin: 0 auto;
   padding: var(--spacing-big) var(--spacing-small);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   gap: var(--spacing-small);
 }
 
@@ -76,13 +91,16 @@
   font-weight: 300;
   font-size: 3.2rem;
   line-height: 1.15;
-  color: var(--agilent-ink);
+  color: #fff;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 35%);
+  max-width: 16ch;
   margin: 0;
 }
 
 .agilent-hero-slide-content p {
   font-size: 1.8rem;
-  color: var(--agilent-ink);
+  color: rgb(255 255 255 / 92%);
+  text-shadow: 0 1px 8px rgb(0 0 0 / 30%);
   margin: 0;
   max-width: 42ch;
 }
