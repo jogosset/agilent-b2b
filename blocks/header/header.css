@@ -910,12 +910,14 @@ header nav .nav-brand a {
    <p>, not an <a>, so both need covering. */
 header nav .nav-sections .default-content-wrapper > ul > li > a,
 header nav .nav-sections .default-content-wrapper > ul > li > p,
+header nav .nav-sections .default-content-wrapper > ul > li > p > a,
 header nav .nav-hamburger button,
 header nav .nav-tools-wrapper > button {
   color: #fff;
 }
 
 header nav .nav-sections .default-content-wrapper > ul > li > a:hover,
+header nav .nav-sections .default-content-wrapper > ul > li > p > a:hover,
 header nav .nav-sections .default-content-wrapper > ul > li.nav-drop:hover {
   color: #d8ecfb;
 }
