@@ -1,20 +1,25 @@
+/* Matches the real agilent.com/en footer: near-black #202020, light gray text */
 footer {
-    background-color: #0056a8;
-    color: #cfe1f3;
+    background-color: #202020;
+    color: #b2b2b2;
     font: var(--type-body-2-default-font);
     letter-spacing: var(--type-body-2-default-letter-spacing);
 }
 
 footer a {
-    color: #dceaf8;
+    color: #d9d9d9;
+}
+
+footer a:hover {
+    color: #5cb3e8;
 }
 
 footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
-    font-family: 'Plex Mono', 'Roboto Mono', monospace;
-    font-size: 1.1rem;
-    letter-spacing: 0.08em;
+    font-family: var(--type-base-font-family);
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: #8fb4dd;
+    color: #8c8c8c;
     font-weight: 500;
 }
 
