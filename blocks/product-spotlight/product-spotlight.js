@@ -22,14 +22,6 @@ export default function decorate(block) {
     while (cell.firstElementChild) content.append(cell.firstElementChild);
   }
 
-  const heading = content.querySelector('h1, h2, h3');
-  const eyebrow = heading?.previousElementSibling;
-  eyebrow?.classList.add('product-spotlight-eyebrow');
-
-  const paragraphs = [...content.querySelectorAll('p')];
-  const lede = paragraphs.find((p) => !p.querySelector('a') && p !== eyebrow);
-  lede?.classList.add('product-spotlight-lede');
-
   // paragraphs whose only content is a link are CTAs (decorateButtons has
   // already turned bold/italic-wrapped ones into .button / .button.primary)
   const actions = document.createElement('div');
@@ -40,6 +32,29 @@ export default function decorate(block) {
       return a && p.textContent.trim() === a.textContent.trim();
     })
     .forEach((p) => actions.append(p));
+
+  // Everything else, in authored order, is [eyebrow, heading, lede...].
+  // If the heading wasn't authored as a real heading tag, promote the
+  // second plain paragraph so the CSS always has a real heading to style.
+  const plainParagraphs = [...content.querySelectorAll('p')];
+  let heading = content.querySelector('h1, h2, h3');
+  let eyebrow;
+  let lede;
+  if (heading) {
+    eyebrow = heading.previousElementSibling?.tagName === 'P' ? heading.previousElementSibling : null;
+    lede = plainParagraphs.find((p) => p !== eyebrow) || null;
+  } else if (plainParagraphs.length) {
+    [eyebrow] = plainParagraphs;
+    const headingPara = plainParagraphs[1];
+    if (headingPara) {
+      heading = document.createElement('h2');
+      heading.append(...headingPara.childNodes);
+      headingPara.replaceWith(heading);
+    }
+    lede = plainParagraphs[2] || null;
+  }
+  eyebrow?.classList.add('product-spotlight-eyebrow');
+  lede?.classList.add('product-spotlight-lede');
 
   // specs sit between the lede and the CTA row
   content.append(buildSpecs(specsRow), actions);
