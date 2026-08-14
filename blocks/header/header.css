@@ -891,28 +891,38 @@ body:has(.seller-assisted-buying-banner) {
   }
 }
 
-/* ===== Agilent brand reskin =====
-   Link/button/cart-badge colors already follow the brand through the
-   --color-brand-* remap in styles.css. This section only touches what that
-   remap can't reach: the wordmark face, hairline tone, and search input. */
+/* ===== Agilent brand reskin (matches the real agilent.com/en header) ===== */
 header .nav-wrapper {
-  border-bottom-color: #d8e1e8;
+  background-color: #0085d5;
+  border-bottom: 0;
 }
 
 header nav .nav-brand a {
-  font-family: 'Plex Cond', var(--type-base-font-family);
-  font-weight: 700;
+  font-family: var(--type-base-font-family);
+  font-weight: 400;
   letter-spacing: 0.01em;
-  color: #0b1c2c;
+  color: #fff;
+}
+
+header nav .nav-sections ul > li > a,
+header nav .nav-hamburger button,
+header nav .nav-tools button {
+  color: #fff;
 }
 
 header nav .nav-sections ul > li > a:hover,
 header nav .nav-sections ul > li.nav-drop:hover {
-  color: var(--color-brand-500);
+  color: #d8ecfb;
+}
+
+header nav .nav-tools button.nav-cart-button,
+header nav .nav-tools button.nav-search-button,
+header nav .nav-tools button.nav-wishlist-button {
+  filter: brightness(0) invert(1);
 }
 
 header .nav-search-panel input[type='search'],
 header .nav-search-panel input[type='text'] {
-  font-family: 'Plex Mono', 'Roboto Mono', monospace;
-  font-size: 1.3rem;
+  font-family: var(--type-base-font-family);
+  font-size: 1.4rem;
 }
