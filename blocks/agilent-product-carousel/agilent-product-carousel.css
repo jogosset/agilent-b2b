@@ -1,0 +1,89 @@
+.agilent-product-carousel-container {
+  --agilent-blue: #0085d5;
+  --agilent-ink: #1d1d1d;
+}
+
+.agilent-product-carousel-wrap {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--spacing-xsmall);
+}
+
+.agilent-product-carousel-track {
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  display: flex;
+  gap: var(--spacing-small);
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.agilent-product-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.agilent-product-carousel-card {
+  flex: none;
+  width: 240px;
+  scroll-snap-align: start;
+  border: var(--shape-border-width-1) solid var(--color-neutral-400);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.agilent-product-carousel-media img,
+.agilent-product-carousel-media picture {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+.agilent-product-carousel-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9aa7b0;
+  background: repeating-linear-gradient(45deg, #eef2f5, #eef2f5 10px, #e3e9ed 10px, #e3e9ed 20px);
+}
+
+.agilent-product-carousel-content {
+  padding: var(--spacing-small);
+}
+
+.agilent-product-carousel-content h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--agilent-ink);
+  margin: 0 0 6px;
+}
+
+.agilent-product-carousel-content p {
+  font-size: 1.25rem;
+  color: var(--color-neutral-800);
+  margin: 0;
+}
+
+.agilent-product-carousel-arrow {
+  background: #fff;
+  border: var(--shape-border-width-1) solid var(--color-neutral-400);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--agilent-ink);
+  cursor: pointer;
+  flex: none;
+}
+
+.agilent-product-carousel-arrow:hover {
+  border-color: var(--agilent-blue);
+  color: var(--agilent-blue);
+}
