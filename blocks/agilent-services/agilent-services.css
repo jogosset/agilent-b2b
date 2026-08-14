@@ -1,0 +1,66 @@
+.agilent-services-container {
+  --agilent-blue: #0085d5;
+  --agilent-ink: #1d1d1d;
+}
+
+.agilent-services-groups {
+  display: grid;
+  gap: var(--spacing-big);
+}
+
+.agilent-services-group {
+  border-top: var(--shape-border-width-1) solid var(--color-neutral-400);
+  padding-top: var(--spacing-medium);
+}
+
+.agilent-services-group .icon {
+  width: 28px;
+  height: 28px;
+  color: var(--agilent-blue);
+  margin-bottom: var(--spacing-xsmall);
+  display: block;
+}
+
+.agilent-services-group h3 {
+  font-family: roboto, roboto-fallback, system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  color: var(--agilent-ink);
+  margin: 0 0 var(--spacing-small);
+}
+
+.agilent-services-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.agilent-services-links li {
+  font-size: 1.4rem;
+}
+
+.agilent-services-links a {
+  color: var(--agilent-ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.agilent-services-links a::after {
+  content: '›';
+  color: var(--agilent-blue);
+}
+
+.agilent-services-links a:hover {
+  color: var(--agilent-blue);
+}
+
+@media (min-width: 900px) {
+  .agilent-services-groups {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-medium);
+  }
+}
