@@ -1,0 +1,102 @@
+.agilent-quick-order-container {
+  --agilent-navy: #00426a;
+  --agilent-blue: #0085d5;
+  --agilent-ink: #1d1d1d;
+}
+
+.agilent-quick-order-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-medium);
+}
+
+.agilent-quick-order-content h2 {
+  font-family: roboto, roboto-fallback, system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 2.6rem;
+  color: var(--agilent-ink);
+  margin: 0 0 var(--spacing-medium);
+}
+
+.agilent-quick-order-field-label {
+  display: block;
+  font-size: 1.2rem;
+  color: var(--agilent-ink);
+  margin-bottom: 6px;
+}
+
+.agilent-quick-order-field input {
+  width: 100%;
+  max-width: 420px;
+  height: 4.4rem;
+  padding: 0 var(--spacing-small);
+  border: var(--shape-border-width-1) solid var(--color-neutral-500);
+  border-radius: 4px;
+  font-size: 1.4rem;
+  color: var(--agilent-ink);
+  margin-bottom: var(--spacing-small);
+}
+
+.agilent-quick-order-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-medium);
+}
+
+.agilent-quick-order-add {
+  background: #fff;
+  color: var(--agilent-ink);
+  font-weight: 500;
+  font-size: 1.4rem;
+  border: var(--shape-border-width-1) solid var(--agilent-ink);
+  padding: 1.1rem 1.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.agilent-quick-order-add:hover {
+  border-color: var(--agilent-blue);
+  color: var(--agilent-blue);
+}
+
+.agilent-quick-order-multi {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--agilent-navy);
+  font-weight: 500;
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+.agilent-quick-order-multi:hover {
+  text-decoration: underline;
+}
+
+.agilent-quick-order-media img,
+.agilent-quick-order-media picture {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: 4px;
+}
+
+.agilent-quick-order-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9aa7b0;
+  background: repeating-linear-gradient(45deg, #eef2f5, #eef2f5 10px, #e3e9ed 10px, #e3e9ed 20px);
+}
+
+@media (min-width: 900px) {
+  .agilent-quick-order-inner {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
