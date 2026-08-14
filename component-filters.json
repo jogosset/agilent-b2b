@@ -22,8 +22,6 @@
       "agilent-sustainability",
       "cards",
       "carousel",
-      "catalog-hero",
-      "category-grid",
       "columns",
       "commerce-account-header",
       "commerce-account-sidebar",
@@ -56,14 +54,8 @@
       "product-details",
       "product-list-page",
       "product-recommendations",
-      "product-spotlight",
-      "promo-banner",
-      "stats",
-      "tag-list",
       "targeted-block",
-      "text",
-      "utility-bar",
-      "value-props"
+      "text"
     ]
   },
   {
@@ -99,30 +91,6 @@
     "components": [
       "text",
       "image"
-    ]
-  },
-  {
-    "id": "stats",
-    "components": [
-      "stats-item"
-    ]
-  },
-  {
-    "id": "category-grid",
-    "components": [
-      "category-grid-item"
-    ]
-  },
-  {
-    "id": "value-props",
-    "components": [
-      "value-props-item"
-    ]
-  },
-  {
-    "id": "tag-list",
-    "components": [
-      "tag-list-item"
     ]
   },
   {
