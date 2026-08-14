@@ -17,5 +17,16 @@ export default function decorate(block) {
   });
   ctaPara?.classList.add('promo-banner-cta');
 
+  // If the heading wasn't authored as a real heading tag, promote the
+  // first remaining plain paragraph so the CSS has a real heading to style.
+  if (!content.querySelector('h1, h2, h3, h4')) {
+    const headingPara = [...content.querySelectorAll('p')].find((p) => p !== ctaPara);
+    if (headingPara) {
+      const heading = document.createElement('h3');
+      heading.append(...headingPara.childNodes);
+      headingPara.replaceWith(heading);
+    }
+  }
+
   block.replaceChildren(tag, content);
 }
