@@ -31,6 +31,18 @@
   object-fit: contain;
 }
 
+.agilent-category-grid-placeholder {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9aa7b0;
+  background: repeating-linear-gradient(45deg, #eef2f5, #eef2f5 8px, #e3e9ed 8px, #e3e9ed 16px);
+}
+
 .agilent-category-grid-label {
   font-size: 1.4rem;
   color: var(--agilent-ink);
