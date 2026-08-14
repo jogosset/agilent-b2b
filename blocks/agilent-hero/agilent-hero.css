@@ -179,20 +179,16 @@
 }
 
 @media (min-width: 900px) {
-  .agilent-hero-slide {
-    grid-template-columns: 0.85fr 1.15fr;
-  }
-
-  .agilent-hero-slide-media {
-    order: 1;
-    aspect-ratio: unset;
-  }
-
   .agilent-hero-slides {
     min-height: 460px;
   }
 
   .agilent-hero-slide-content {
+    min-height: 480px;
     padding: var(--spacing-xxbig) var(--spacing-xbig);
+  }
+
+  .agilent-hero-slide-content h2 {
+    font-size: 4rem;
   }
 }
