@@ -1,0 +1,51 @@
+.agilent-icon-links-container {
+  --agilent-blue: #0085d5;
+  --agilent-ink: #1d1d1d;
+}
+
+.agilent-icon-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-medium) var(--spacing-small);
+}
+
+.agilent-icon-links-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-xsmall);
+}
+
+.agilent-icon-links-icon .icon {
+  width: 40px;
+  height: 40px;
+  color: var(--agilent-blue);
+}
+
+.agilent-icon-links-label {
+  font-size: 1.4rem;
+  color: var(--agilent-ink);
+}
+
+.agilent-icon-links-label a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.agilent-icon-links-label a:hover {
+  color: var(--agilent-blue);
+  text-decoration: underline;
+}
+
+@media (min-width: 600px) {
+  .agilent-icon-links {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .agilent-icon-links {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
