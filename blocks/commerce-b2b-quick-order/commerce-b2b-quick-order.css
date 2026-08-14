@@ -1,5 +1,18 @@
 .commerce-b2b-quick-order {
-    padding: var(--spacing-large) 0;
+    padding: var(--spacing-medium);
+    border: var(--shape-border-width-1) solid var(--color-neutral-400);
+    border-radius: 6px;
+}
+
+/* Colors for the rendered drop-in UI (inputs, buttons, item rows) already
+   follow the brand through the --color-brand-* remap in styles.css, since
+   dropin components read the shared :root/.dropin-design tokens. */
+.quick-order-title {
+    font-family: 'Plex Mono', 'Roboto Mono', monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-brand-500);
 }
 
 .quick-order-main-container {

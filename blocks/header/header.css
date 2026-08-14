@@ -890,3 +890,29 @@ body:has(.seller-assisted-buying-banner) {
     display: inline-block;
   }
 }
+
+/* ===== Agilent brand reskin =====
+   Link/button/cart-badge colors already follow the brand through the
+   --color-brand-* remap in styles.css. This section only touches what that
+   remap can't reach: the wordmark face, hairline tone, and search input. */
+header .nav-wrapper {
+  border-bottom-color: #d8e1e8;
+}
+
+header nav .nav-brand a {
+  font-family: 'Plex Cond', var(--type-base-font-family);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #0b1c2c;
+}
+
+header nav .nav-sections ul > li > a:hover,
+header nav .nav-sections ul > li.nav-drop:hover {
+  color: var(--color-brand-500);
+}
+
+header .nav-search-panel input[type='search'],
+header .nav-search-panel input[type='text'] {
+  font-family: 'Plex Mono', 'Roboto Mono', monospace;
+  font-size: 1.3rem;
+}

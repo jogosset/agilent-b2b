@@ -571,6 +571,142 @@
               "type": "key-value-block"
             }
           }
+        },
+        {
+          "title": "Stat",
+          "id": "stats-item",
+          "model": "stats-item",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Category",
+          "id": "category-grid-item",
+          "model": "category-grid-item",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Value Prop",
+          "id": "value-props-item",
+          "model": "value-props-item",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Tag",
+          "id": "tag-list-item",
+          "model": "tag-list-item",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 1
+            }
+          }
+        },
+        {
+          "title": "Utility Bar",
+          "id": "utility-bar",
+          "model": "utility-bar",
+          "plugins": {
+            "da": {
+              "rows": 4,
+              "columns": 1
+            }
+          }
+        },
+        {
+          "title": "Catalog Hero",
+          "id": "catalog-hero",
+          "model": "catalog-hero",
+          "plugins": {
+            "da": {
+              "rows": 2,
+              "columns": 1
+            }
+          }
+        },
+        {
+          "title": "Stats",
+          "id": "stats",
+          "model": "stats",
+          "filter": "stats",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Category Grid",
+          "id": "category-grid",
+          "model": "category-grid",
+          "filter": "category-grid",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Product Spotlight",
+          "id": "product-spotlight",
+          "model": "product-spotlight",
+          "plugins": {
+            "da": {
+              "rows": 2,
+              "columns": 1
+            }
+          }
+        },
+        {
+          "title": "Tag List",
+          "id": "tag-list",
+          "model": "tag-list",
+          "filter": "tag-list",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 1
+            }
+          }
+        },
+        {
+          "title": "Value Props",
+          "id": "value-props",
+          "model": "value-props",
+          "filter": "value-props",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Promo Banner",
+          "id": "promo-banner",
+          "model": "promo-banner",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
         }
       ]
     },

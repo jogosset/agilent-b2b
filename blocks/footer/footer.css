@@ -1,7 +1,21 @@
 footer {
-    background-color: var(--color-neutral-100);
+    background-color: #0056a8;
+    color: #cfe1f3;
     font: var(--type-body-2-default-font);
     letter-spacing: var(--type-body-2-default-letter-spacing);
+}
+
+footer a {
+    color: #dceaf8;
+}
+
+footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
+    font-family: 'Plex Mono', 'Roboto Mono', monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8fb4dd;
+    font-weight: 500;
 }
 
 footer .footer > div {

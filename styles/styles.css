@@ -13,10 +13,13 @@
 /* stylelint-disable no-empty-source */
 :root, .dropin-design {
   /* Adobe Commerce Dropin design tokens */
-  --color-brand-300: #6d6d6d;
-  --color-brand-500: #454545;
-  --color-brand-600: #383838;
-  --color-brand-700: #2b2b2b;
+  /* Agilent brand blue ramp — replaces the neutral default so every dropin
+     component (buttons, links, cart badge, focus states) picks up the brand
+     automatically. See agilent-block-plan.md for the full palette. */
+  --color-brand-300: #4fa0e6;
+  --color-brand-500: #0072ce;
+  --color-brand-600: #005cab;
+  --color-brand-700: #00447e;
   --color-neutral-50: #fff;
   --color-neutral-100: #fafafa;
   --color-neutral-200: #f5f5f5;
