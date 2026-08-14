@@ -1,13 +1,15 @@
+.utility-bar-container {
+  --brand-blue-700: #0056a8;
+  --font-mono: 'Plex Mono', 'Roboto Mono', monospace;
+}
+
 .utility-bar-container .utility-bar-wrapper {
   max-width: unset;
   padding: 0;
+  background: var(--brand-blue-700);
 }
 
 .utility-bar {
-  --brand-blue-700: #0056a8;
-  --font-mono: 'Plex Mono', 'Roboto Mono', monospace;
-
-  background: var(--brand-blue-700);
   color: #d9e8f7;
   font-family: var(--font-mono);
   font-size: 1.1rem;
@@ -20,6 +22,8 @@
   gap: var(--spacing-small);
   overflow-x: auto;
   white-space: nowrap;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .utility-bar-label {
