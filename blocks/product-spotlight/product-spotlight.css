@@ -1,6 +1,10 @@
+/* full-bleed dark background band; the block itself stays width-constrained
+   below so its content lines up with every other section on the page */
 .product-spotlight-container .product-spotlight-wrapper {
   max-width: unset;
   padding: 0;
+  background: #0b1c2c;
+  color: #eaf1f7;
 }
 
 .product-spotlight {
@@ -11,8 +15,8 @@
   display: grid;
   gap: var(--spacing-xbig);
   padding: var(--spacing-xxbig) var(--spacing-small);
-  background: #0b1c2c;
-  color: #eaf1f7;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .product-spotlight-eyebrow {
