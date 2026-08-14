@@ -1,0 +1,180 @@
+/* Real agilent.com/en tokens: header blue #0085d5, primary button #00426a,
+   body text #1d1d1d, Roboto (300 for headings, 400/500 for body/buttons). */
+.agilent-hero-container {
+  --agilent-blue: #0085d5;
+  --agilent-navy: #00426a;
+  --agilent-ink: #1d1d1d;
+  --agilent-line: #d9d9d9;
+}
+
+.agilent-hero-container .agilent-hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.agilent-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.agilent-hero-slides {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  min-height: 320px;
+}
+
+.agilent-hero-slide {
+  display: none;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  max-width: 1668px;
+  margin: 0 auto;
+}
+
+.agilent-hero-slide--active {
+  display: grid;
+}
+
+.agilent-hero-slide-media {
+  order: -1;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: linear-gradient(135deg, #eef2f5, #dbe3e8);
+}
+
+.agilent-hero-slide-media img,
+.agilent-hero-slide-media picture {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.agilent-hero-placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9aa7b0;
+  background: repeating-linear-gradient(45deg, #eef2f5, #eef2f5 10px, #e3e9ed 10px, #e3e9ed 20px);
+}
+
+.agilent-hero-slide-content {
+  padding: var(--spacing-big) var(--spacing-small);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-small);
+}
+
+.agilent-hero-slide-content h2 {
+  font-family: roboto, roboto-fallback, system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 3.2rem;
+  line-height: 1.15;
+  color: var(--agilent-ink);
+  margin: 0;
+}
+
+.agilent-hero-slide-content p {
+  font-size: 1.8rem;
+  color: var(--agilent-ink);
+  margin: 0;
+  max-width: 42ch;
+}
+
+.agilent-hero-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--agilent-navy);
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.4rem;
+  text-decoration: none;
+  padding: 1.2rem 1.8rem;
+  border-radius: 4px;
+  width: max-content;
+}
+
+.agilent-hero-button:hover {
+  background: var(--agilent-blue);
+}
+
+.agilent-hero-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xsmall);
+  padding: var(--spacing-small) 0;
+}
+
+.agilent-hero-arrow,
+.agilent-hero-pause {
+  background: none;
+  border: var(--shape-border-width-1) solid var(--agilent-line);
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--agilent-ink);
+  cursor: pointer;
+  flex: none;
+}
+
+.agilent-hero-arrow:hover,
+.agilent-hero-pause:hover {
+  border-color: var(--agilent-blue);
+  color: var(--agilent-blue);
+}
+
+.agilent-hero-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.agilent-hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--agilent-line);
+  cursor: pointer;
+  padding: 0;
+}
+
+.agilent-hero-dot[aria-current='true'] {
+  background: var(--agilent-blue);
+  width: 20px;
+  border-radius: 4px;
+}
+
+.agilent-hero-pause--paused svg {
+  clip-path: polygon(0 0, 60% 0, 60% 100%, 0 100%, 0 45%, 100% 50%, 0 55%);
+}
+
+@media (min-width: 900px) {
+  .agilent-hero-slide {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .agilent-hero-slide-media {
+    order: 1;
+    aspect-ratio: unset;
+  }
+
+  .agilent-hero-slides {
+    min-height: 460px;
+  }
+
+  .agilent-hero-slide-content {
+    padding: var(--spacing-xxbig) var(--spacing-xbig);
+  }
+}
