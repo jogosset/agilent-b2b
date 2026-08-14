@@ -1,7 +1,10 @@
 export default function decorate(block) {
   const rows = [...block.children];
-  const bannerRow = rows.find((r) => r.querySelector('img'));
-  const ctaRow = rows.find((r) => r.querySelector('a') && r !== bannerRow);
+  // positional model: first row is always the banner (image + heading),
+  // an optional last row with a link is the CTA, everything else is a blurb
+  const bannerRow = rows[0];
+  const lastRow = rows[rows.length - 1];
+  const ctaRow = rows.length > 1 && lastRow !== bannerRow && lastRow?.querySelector('a') ? lastRow : undefined;
   const blurbRows = rows.filter((r) => r !== bannerRow && r !== ctaRow);
 
   const banner = document.createElement('div');
