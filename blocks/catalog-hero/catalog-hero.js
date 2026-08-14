@@ -110,11 +110,6 @@ export default function decorate(block) {
   }
 
   const paragraphs = [...content.querySelectorAll('p')];
-  const heading = content.querySelector('h1, h2');
-
-  // eyebrow = the paragraph right before the heading
-  const eyebrow = heading?.previousElementSibling;
-  if (eyebrow?.tagName === 'P') eyebrow.classList.add('catalog-hero-eyebrow');
 
   // first paragraph containing a link becomes the quick-order form
   const primaryPara = paragraphs.find((p) => p.querySelector('a'));
@@ -135,8 +130,27 @@ export default function decorate(block) {
   const secondaryPara = paragraphs.find((p) => p !== primaryPara && p.querySelector('a'));
   secondaryPara?.classList.add('catalog-hero-links');
 
-  // the plain body paragraph (no links) becomes the lede
-  const lede = paragraphs.find((p) => p !== primaryPara && p !== secondaryPara && !p.querySelector('a'));
+  // Everything else, in authored order, is [eyebrow, heading, lede...].
+  // If the heading wasn't authored as a real <h1>/<h2>, promote the second
+  // plain paragraph so the CSS (and page title) always has a real heading.
+  const plainParagraphs = paragraphs.filter((p) => p !== primaryPara && p !== secondaryPara);
+  let heading = content.querySelector('h1, h2');
+  let eyebrow;
+  let lede;
+  if (heading) {
+    eyebrow = heading.previousElementSibling?.tagName === 'P' ? heading.previousElementSibling : null;
+    lede = plainParagraphs.find((p) => p !== eyebrow && p !== heading) || null;
+  } else if (plainParagraphs.length) {
+    [eyebrow] = plainParagraphs;
+    const headingPara = plainParagraphs[1];
+    if (headingPara) {
+      heading = document.createElement('h1');
+      heading.append(...headingPara.childNodes);
+      headingPara.replaceWith(heading);
+    }
+    lede = plainParagraphs[2] || null;
+  }
+  eyebrow?.classList.add('catalog-hero-eyebrow');
   lede?.classList.add('catalog-hero-lede');
 
   const scope = buildScopePanel(specsRow);
