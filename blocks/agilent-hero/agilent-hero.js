@@ -107,7 +107,9 @@ function buildNav(block, count) {
   pause.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
 
   nav.append(prev, dots, next, pause);
-  return { nav, prev, next, pause };
+  return {
+    nav, prev, next, pause,
+  };
 }
 
 export default function decorate(block) {
@@ -116,7 +118,9 @@ export default function decorate(block) {
   slidesList.className = 'agilent-hero-slides';
   rows.forEach((row, i) => slidesList.append(buildSlide(row, i)));
 
-  const { nav, prev, next, pause } = buildNav(block, rows.length);
+  const {
+    nav, prev, next, pause,
+  } = buildNav(block, rows.length);
 
   block.replaceChildren(slidesList, nav);
   goTo(block, 0);

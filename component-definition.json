@@ -707,6 +707,212 @@
               "columns": 2
             }
           }
+        },
+        {
+          "title": "Hero Slide",
+          "id": "agilent-hero-slide",
+          "model": "agilent-hero-slide",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Category",
+          "id": "agilent-category-grid-item",
+          "model": "agilent-category-grid-item",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Promo Tile",
+          "id": "agilent-promo-tiles-item",
+          "model": "agilent-promo-tiles-item",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 1
+            }
+          }
+        },
+        {
+          "title": "Promo Card",
+          "id": "agilent-promo-cards-item",
+          "model": "agilent-promo-cards-item",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Icon Link",
+          "id": "agilent-icon-links-item",
+          "model": "agilent-icon-links-item",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Service Link",
+          "id": "agilent-services-item",
+          "model": "agilent-services-item",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "News Card",
+          "id": "agilent-news-grid-item",
+          "model": "agilent-news-grid-item",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Product Card",
+          "id": "agilent-product-carousel-item",
+          "model": "agilent-product-carousel-item",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Agilent Hero",
+          "id": "agilent-hero",
+          "filter": "agilent-hero",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Agilent Category Grid",
+          "id": "agilent-category-grid",
+          "filter": "agilent-category-grid",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Agilent Promo Tiles",
+          "id": "agilent-promo-tiles",
+          "filter": "agilent-promo-tiles",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 1
+            }
+          }
+        },
+        {
+          "title": "Agilent Promo Cards",
+          "id": "agilent-promo-cards",
+          "filter": "agilent-promo-cards",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Agilent Benefits",
+          "id": "agilent-benefits",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 1
+            }
+          }
+        },
+        {
+          "title": "Agilent Quick Order",
+          "id": "agilent-quick-order",
+          "plugins": {
+            "da": {
+              "rows": 3,
+              "columns": 1
+            }
+          }
+        },
+        {
+          "title": "Agilent Icon Links",
+          "id": "agilent-icon-links",
+          "filter": "agilent-icon-links",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Agilent Services",
+          "id": "agilent-services",
+          "filter": "agilent-services",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Agilent Sustainability",
+          "id": "agilent-sustainability",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Agilent News Grid",
+          "id": "agilent-news-grid",
+          "filter": "agilent-news-grid",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
+        },
+        {
+          "title": "Agilent Product Carousel",
+          "id": "agilent-product-carousel",
+          "filter": "agilent-product-carousel",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 2
+            }
+          }
         }
       ]
     },

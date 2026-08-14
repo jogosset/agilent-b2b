@@ -9,6 +9,17 @@
     "id": "section",
     "components": [
       "accordion",
+      "agilent-benefits",
+      "agilent-category-grid",
+      "agilent-hero",
+      "agilent-icon-links",
+      "agilent-news-grid",
+      "agilent-product-carousel",
+      "agilent-promo-cards",
+      "agilent-promo-tiles",
+      "agilent-quick-order",
+      "agilent-services",
+      "agilent-sustainability",
       "cards",
       "carousel",
       "catalog-hero",
@@ -112,6 +123,54 @@
     "id": "tag-list",
     "components": [
       "tag-list-item"
+    ]
+  },
+  {
+    "id": "agilent-hero",
+    "components": [
+      "agilent-hero-slide"
+    ]
+  },
+  {
+    "id": "agilent-category-grid",
+    "components": [
+      "agilent-category-grid-item"
+    ]
+  },
+  {
+    "id": "agilent-promo-tiles",
+    "components": [
+      "agilent-promo-tiles-item"
+    ]
+  },
+  {
+    "id": "agilent-promo-cards",
+    "components": [
+      "agilent-promo-cards-item"
+    ]
+  },
+  {
+    "id": "agilent-icon-links",
+    "components": [
+      "agilent-icon-links-item"
+    ]
+  },
+  {
+    "id": "agilent-services",
+    "components": [
+      "agilent-services-item"
+    ]
+  },
+  {
+    "id": "agilent-news-grid",
+    "components": [
+      "agilent-news-grid-item"
+    ]
+  },
+  {
+    "id": "agilent-product-carousel",
+    "components": [
+      "agilent-product-carousel-item"
     ]
   }
 ]

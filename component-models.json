@@ -712,5 +712,150 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "agilent-hero-slide",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "content",
+        "label": "Content",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "agilent-category-grid-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Label",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "agilent-promo-tiles-item",
+    "fields": [
+      {
+        "component": "richtext",
+        "name": "content",
+        "label": "Content",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "agilent-promo-cards-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "content",
+        "label": "Content",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "agilent-icon-links-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "icon",
+        "label": "Icon",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Label",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "agilent-services-item",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "meta",
+        "label": "Icon | Group heading (leave blank to continue previous group)",
+        "value": ""
+      },
+      {
+        "component": "richtext",
+        "name": "link",
+        "label": "Link",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "agilent-news-grid-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "content",
+        "label": "Tag | Headline",
+        "value": ""
+      }
+    ]
+  },
+  {
+    "id": "agilent-product-carousel-item",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "richtext",
+        "name": "content",
+        "label": "Content",
+        "value": "",
+        "valueType": "string"
+      }
+    ]
   }
 ]
