@@ -1,9 +1,4 @@
-.catalog-hero-container .catalog-hero-wrapper {
-  max-width: unset;
-  padding: 0;
-}
-
-.catalog-hero {
+.catalog-hero-container {
   --brand-blue-600: #0072ce;
   --brand-blue-700: #0056a8;
   --brand-blue-100: #e4eff9;
@@ -12,12 +7,23 @@
   --brand-signal: #d9700c;
   --font-display: 'Plex Cond', var(--type-base-font-family);
   --font-mono: 'Plex Mono', 'Roboto Mono', monospace;
+}
 
+/* full-bleed background band; the block itself stays width-constrained
+   below so its content lines up with every other section on the page */
+.catalog-hero-container .catalog-hero-wrapper {
+  max-width: unset;
+  padding: 0;
+  background: linear-gradient(180deg, var(--brand-blue-100) 0%, var(--background-color) 62%);
+  border-bottom: var(--shape-border-width-1) solid var(--brand-line);
+}
+
+.catalog-hero {
   display: grid;
   gap: var(--spacing-xbig);
   padding: var(--spacing-big) var(--spacing-small) var(--spacing-xxbig);
-  background: linear-gradient(180deg, var(--brand-blue-100) 0%, var(--background-color) 62%);
-  border-bottom: var(--shape-border-width-1) solid var(--brand-line);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .catalog-hero-eyebrow {
