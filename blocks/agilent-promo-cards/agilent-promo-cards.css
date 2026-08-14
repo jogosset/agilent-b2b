@@ -1,0 +1,67 @@
+.agilent-promo-cards-container {
+  --agilent-navy: #00426a;
+  --agilent-blue: #0085d5;
+  --agilent-ink: #1d1d1d;
+}
+
+.agilent-promo-cards {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--spacing-small);
+}
+
+.agilent-promo-cards-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--spacing-small);
+  align-items: center;
+  background: #f4f7f9;
+  padding: var(--spacing-small);
+  border-radius: 4px;
+}
+
+.agilent-promo-cards-media img {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.agilent-promo-cards-placeholder {
+  width: 84px;
+  height: 84px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9aa7b0;
+  background: repeating-linear-gradient(45deg, #e9edf0, #e9edf0 8px, #dde3e7 8px, #dde3e7 16px);
+}
+
+.agilent-promo-cards-content p {
+  font-size: 1.4rem;
+  color: var(--agilent-ink);
+  margin: 0 0 var(--spacing-xsmall);
+}
+
+.agilent-promo-cards-button {
+  display: inline-block;
+  background: var(--agilent-navy);
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.3rem;
+  text-decoration: none;
+  padding: 0.9rem 1.6rem;
+  border-radius: 4px;
+}
+
+.agilent-promo-cards-button:hover {
+  background: var(--agilent-blue);
+}
+
+@media (min-width: 900px) {
+  .agilent-promo-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
