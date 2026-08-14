@@ -1,0 +1,107 @@
+.agilent-benefits-container {
+  --agilent-navy: #00426a;
+  --agilent-blue: #0085d5;
+  --agilent-ink: #1d1d1d;
+  --agilent-good: #1c7d4d;
+}
+
+.agilent-benefits {
+  background: #eaf3f8;
+  border-radius: 4px;
+  padding: var(--spacing-medium) var(--spacing-small);
+}
+
+.agilent-benefits-heading {
+  font-family: roboto, roboto-fallback, system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 2.4rem;
+  color: var(--agilent-ink);
+  margin: 0 0 var(--spacing-medium);
+}
+
+.agilent-benefits-list {
+  list-style: none;
+  margin: 0 0 var(--spacing-medium);
+  padding: 0;
+  display: grid;
+  gap: var(--spacing-xsmall);
+}
+
+.agilent-benefits-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 1.4rem;
+  color: var(--agilent-ink);
+}
+
+.agilent-benefits-item svg {
+  color: var(--agilent-good);
+  flex: none;
+  margin-top: 2px;
+}
+
+.agilent-benefits-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-small);
+}
+
+.agilent-benefits-button-primary {
+  background: var(--agilent-navy);
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.4rem;
+  text-decoration: none;
+  padding: 1.1rem 1.8rem;
+  border-radius: 4px;
+}
+
+.agilent-benefits-button-primary:hover {
+  background: var(--agilent-blue);
+}
+
+.agilent-benefits-button-secondary {
+  color: var(--agilent-navy);
+  font-weight: 500;
+  font-size: 1.4rem;
+  text-decoration: none;
+  border: var(--shape-border-width-1) solid var(--agilent-navy);
+  padding: 1rem 1.7rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.agilent-benefits-button-secondary::after {
+  content: '→';
+}
+
+.agilent-benefits-button-secondary:hover {
+  background: #fff;
+}
+
+@media (min-width: 900px) {
+  .agilent-benefits {
+    padding: var(--spacing-xbig);
+  }
+
+  .agilent-benefits-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--spacing-big);
+  }
+
+  .agilent-benefits-heading {
+    grid-column: 1 / -1;
+  }
+
+  .agilent-benefits-list {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--spacing-big);
+    margin-bottom: 0;
+  }
+}
