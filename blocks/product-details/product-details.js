@@ -559,7 +559,7 @@ export default async function decorate(block) {
     || 'USD';
   customOptionsController = createCustomOptionsController({
     element: $customOptions,
-    endpoint: getConfigValue('custom-options-endpoint'),
+    endpoint: CUSTOM_OPTIONS_ENDPOINT,
     sku: product?.sku,
     storeView,
     currency,
