@@ -4,6 +4,7 @@ import {
 import { h } from '@dropins/tools/preact.js';
 import { events } from '@dropins/tools/event-bus.js';
 import { tryRenderAemAssetsImage } from '@dropins/tools/lib/aem/assets.js';
+import { getConfigValue, getHeaders } from '@dropins/tools/lib/aem/configs.js';
 import * as pdpApi from '@dropins/storefront-pdp/api.js';
 import { render as pdpRendered } from '@dropins/storefront-pdp/render.js';
 import { render as wishlistRender } from '@dropins/storefront-wishlist/render.js';
@@ -43,6 +44,7 @@ import {
   initializeRequisitionListForProduct,
   createRequisitionListRenderer,
 } from './requisition-list.js';
+import { createCustomOptionsController } from './customizable-options.js';
 
 /**
  * Checks if the page has prerendered product JSON-LD data
@@ -113,7 +115,28 @@ export default async function decorate(block) {
   let isUpdateMode = false;
 
   // State to track if the current product/variant is out of stock
-  let isOutOfStock = false;
+  let isOutOfStock = product?.inStock === false;
+
+  // ProductOptions can update independently from Admin custom options. Keep
+  // each validity source separate so one event cannot incorrectly enable cart.
+  let dropinConfigurationValid = pdpApi.isProductConfigurationValid() !== false;
+  let customOptionsReady = false;
+  let customOptionsValid = false;
+  let isCartActionPending = false;
+  let addToCart = null;
+  let customOptionsController = null;
+
+  const updateAddToCartDisabledState = () => {
+    if (!addToCart) return;
+    addToCart.setProps((prev) => ({
+      ...prev,
+      disabled: isCartActionPending
+        || isOutOfStock
+        || !dropinConfigurationValid
+        || !customOptionsReady
+        || !customOptionsValid,
+    }));
+  };
 
   // Layout
   const fragment = document.createRange()
@@ -131,6 +154,7 @@ export default async function decorate(block) {
         <div class="product-details__gift-card-options"></div>
         <div class="product-details__configuration">
           <div class="product-details__options"></div>
+          <div class="product-details__custom-options"></div>
           <div class="product-details__quantity"></div>
           <div class="product-details__buttons">
             <div class="product-details__buttons__add-to-cart"></div>
@@ -153,6 +177,7 @@ export default async function decorate(block) {
   const $galleryMobile = fragment.querySelector('.product-details__right-column .product-details__gallery');
   const $shortDescription = fragment.querySelector('.product-details__short-description');
   const $options = fragment.querySelector('.product-details__options');
+  const $customOptions = fragment.querySelector('.product-details__custom-options');
   const $quantity = fragment.querySelector('.product-details__quantity');
   const $giftCardOptions = fragment.querySelector('.product-details__gift-card-options');
   const $addToCart = fragment.querySelector('.product-details__buttons__add-to-cart');
@@ -427,14 +452,16 @@ export default async function decorate(block) {
   ]);
 
   // Configuration – Button - Add to Cart
-  const addToCart = await UI.render(Button, {
+  addToCart = await UI.render(Button, {
     children: labels.Global?.AddProductToCart,
     icon: h(Icon, { source: 'Cart' }),
+    disabled: true,
     onClick: async () => {
       const buttonActionText = isUpdateMode
         ? labels.Global?.UpdatingInCart
         : labels.Global?.AddingToCart;
       try {
+        isCartActionPending = true;
         addToCart.setProps((prev) => ({
           ...prev,
           children: buttonActionText,
@@ -443,8 +470,14 @@ export default async function decorate(block) {
         $addToCartStatus.textContent = buttonActionText ?? 'Adding to Cart';
 
         // get the current selection values
-        const values = pdpApi.getProductConfigurationValues();
-        const valid = pdpApi.isProductConfigurationValid();
+        const customValid = customOptionsController?.validate({ report: true }) === true;
+        const currentValues = pdpApi.getProductConfigurationValues() || {};
+        const values = customOptionsController
+          ? customOptionsController.mergeConfiguration(currentValues)
+          : currentValues;
+        const valid = pdpApi.isProductConfigurationValid() !== false
+          && customOptionsReady
+          && customValid;
 
         // add or update the product in the cart
         if (valid) {
@@ -501,30 +534,51 @@ export default async function decorate(block) {
           block: 'center',
         });
       } finally {
+        isCartActionPending = false;
         // Reset button text using the helper function which respects the current mode
         updateAddToCartButtonText(addToCart, isUpdateMode, labels);
-        // Re-enable button, unless the current variant is out of stock
-        addToCart.setProps((prev) => ({
-          ...prev,
-          disabled: isOutOfStock,
-        }));
+        updateAddToCartDisabledState();
         $addToCartStatus.textContent = '';
       }
     },
   })($addToCart);
 
+  const allHeaders = getHeaders('all');
+  const catalogHeaders = getHeaders('cs');
+  const storeView = allHeaders.Store
+    || catalogHeaders['Magento-Store-View-Code']
+    || 'default';
+  const currency = product?.prices?.final?.currency
+    || product?.prices?.final?.amount?.currency
+    || 'USD';
+  customOptionsController = createCustomOptionsController({
+    element: $customOptions,
+    endpoint: getConfigValue('custom-options-endpoint'),
+    sku: product?.sku,
+    storeView,
+    currency,
+    locale: document.documentElement.lang || 'en-US',
+    initialConfiguration: pdpApi.getProductConfigurationValues() || {},
+    onValidityChange: ({ ready, valid }) => {
+      customOptionsReady = ready;
+      customOptionsValid = valid;
+      updateAddToCartDisabledState();
+    },
+    onConfigurationChange: (merge) => {
+      pdpApi.setProductConfigurationValues((previous) => merge(previous));
+    },
+  });
+  customOptionsController.load();
+
   // Lifecycle Events
   events.on('pdp/data', (data) => {
     isOutOfStock = data?.inStock === false;
-    addToCart.setProps((prev) => ({ ...prev, disabled: isOutOfStock }));
+    updateAddToCartDisabledState();
   }, { eager: true });
 
   events.on('pdp/valid', (valid) => {
-    // update add to cart button disabled state based on product selection validity and stock status
-    addToCart.setProps((prev) => ({
-      ...prev,
-      disabled: isOutOfStock || !valid,
-    }));
+    dropinConfigurationValid = valid !== false;
+    updateAddToCartDisabledState();
   }, { eager: true });
 
   // Grid Ordering flow - Sync state and update Add To Cart button text on variants selection change
