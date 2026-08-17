@@ -3,7 +3,6 @@
     "default": {
       "commerce-core-endpoint": "https://na1-sandbox.api.commerce.adobe.com/83A5fPM5CuXnMERL7GN5ZL/graphql",
       "commerce-endpoint": "https://na1-sandbox.api.commerce.adobe.com/83A5fPM5CuXnMERL7GN5ZL/graphql",
-      "custom-options-endpoint": "https://285361-erpintegration-stage.adobeioruntime.net/api/v1/web/commerce-custom-options/get",
       "commerce-assets-enabled": true,
       "headers": {
         "all": {
