@@ -149,7 +149,9 @@ export default async function decorate(block) {
     if (!quoteId) return;
 
     UI.render(Button, {
-      children: placeholders?.Cart?.PriceSummary?.checkout,
+      // Falls back to a literal when /placeholders/cart.json hasn't been
+      // authored yet — without it this button renders with no visible label.
+      children: placeholders?.Cart?.PriceSummary?.checkout || 'Checkout',
       disabled: !checkoutEnabled,
       onClick: () => {
         window.location.href = `/b2b/quote-checkout?quoteId=${quoteId}`;
