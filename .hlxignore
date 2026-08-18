@@ -1,6 +1,13 @@
-.*
-!.da
-!.da/**
+.git/**
+.github/**
+.husky/**
+.eslintrc.js
+.eslintignore
+.stylelintrc.json
+.renovaterc.json
+.npmrc
+.editorconfig
+.env
 *.md
 *.d.ts
 *.map
