@@ -55,7 +55,12 @@
       "product-list-page",
       "product-recommendations",
       "targeted-block",
-      "text"
+      "text",
+      "hero-v2",
+      "product-teaser",
+      "quote",
+      "tabs",
+      "video"
     ]
   },
   {
@@ -139,6 +144,12 @@
     "id": "agilent-product-carousel",
     "components": [
       "agilent-product-carousel-item"
+    ]
+  },
+  {
+    "id": "tabs",
+    "components": [
+      "tabs-item"
     ]
   }
 ]
