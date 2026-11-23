@@ -152,5 +152,11 @@
     "components": [
       "tabs-item"
     ]
+  },
+  {
+    "id": "cards-jg",
+    "components": [
+      "card-jg"
+    ]
   }
 ]

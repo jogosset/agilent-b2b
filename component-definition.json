@@ -959,6 +959,106 @@
           }
         }
       ]
+    },
+    {
+      "id": "custom-blocks-jg",
+      "title": "Custom Blocks (JG)",
+      "components": [
+        {
+          "title": "Hero (JPG)",
+          "id": "hero-jg",
+          "model": "hero-jg",
+          "plugins": {
+            "da": {
+              "rows": 1,
+              "columns": 1,
+              "fields": [
+                {
+                  "name": "image",
+                  "selector": "div:nth-child(1)>picture>img[src]"
+                },
+                {
+                  "name": "imageAlt",
+                  "selector": "div:nth-child(1)>picture>img[alt]"
+                },
+                {
+                  "name": "heading",
+                  "selector": "div:nth-child(1)>h2"
+                },
+                {
+                  "name": "subtitle",
+                  "selector": "div:nth-child(1)>h3"
+                },
+                {
+                  "name": "text",
+                  "selector": "div:nth-child(1)>p:not(:last-child)"
+                },
+                {
+                  "name": "ctaText",
+                  "selector": "div:nth-child(1)>p:last-child>a"
+                },
+                {
+                  "name": "ctaUrl",
+                  "selector": "div:nth-child(1)>p:last-child>a[href]"
+                },
+                {
+                  "name": "textColor",
+                  "selector": "div:nth-child(2)>div:nth-child(2)"
+                },
+                {
+                  "name": "ctaButtonOpacity",
+                  "selector": "div:nth-child(3)>div:nth-child(2)"
+                }
+              ],
+              "unsafeHTML": "<div class=\"hero-jg\"><div><div><picture></picture><h2>Hero Title</h2><h3>Subtitle</h3><p>A short description of the hero section.</p><p><a href=\"#\">Learn More</a></p></div></div><div><div>text-color</div><div>#ffffff</div></div><div><div>cta-button-opacity</div><div>24</div></div></div>"
+            }
+          }
+        },
+        {
+          "title": "Cards (JPG)",
+          "id": "cards-jg",
+          "filter": "cards-jg",
+          "plugins": {
+            "da": {
+              "title": "Cards V3",
+              "rows": 1,
+              "columns": 5,
+              "unsafeHTML": "<div class=\"cards-jg\"><div><div><picture></picture></div><div>Card Title</div><div><p>Card body text goes here.</p></div><div>#f5f5f5</div><div>#333333</div></div></div>"
+            }
+          }
+        },
+        {
+          "title": "Product Teaser (JPG)",
+          "id": "product-teaser-jg",
+          "model": "product-teaser-jg",
+          "plugins": {
+            "da": {
+              "type": "key-value-block",
+              "unsafeHTML": "<div class=\"product-teaser-jg\"><div><div>sku</div><div>YOUR-SKU-HERE</div></div><div><div>details-button</div><div>true</div></div><div><div>cart-button</div><div>true</div></div></div>"
+            }
+          }
+        },
+        {
+          "title": "Promotional Hero (JPG)",
+          "id": "promotional-hero-jg",
+          "plugins": {
+            "da": {
+              "unsafeHTML": "<div class=\"promotional-hero-jg\"><div><div><picture></picture></div><div><h2></h2><p></p></div><div><p></p></div></div><div><div>cta-button-color</div><div></div></div><div><div>cta-text-color</div><div></div></div></div>"
+            }
+          }
+        },
+        {
+          "title": "Age Gate (JPG)",
+          "id": "age-gate-jg",
+          "model": "age-gate-jg",
+          "plugins": {
+            "da": {
+              "type": "key-value-block",
+              "unsafeHTML": "<div class=\"age-gate-jg\"><div><div>minimum-age</div><div>21</div></div><div><div>heading</div><div>Age Verification Required</div></div><div><div>subheading</div><div></div></div><div><div>input-label</div><div>Enter your date of birth</div></div><div><div>button-text</div><div>Submit</div></div></div>"
+            }
+          }
+        }
+      ]
     }
   ]
 }
