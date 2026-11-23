@@ -8,18 +8,8 @@
   {
     "id": "section",
     "components": [
+      "hero",
       "accordion",
-      "agilent-benefits",
-      "agilent-category-grid",
-      "agilent-hero",
-      "agilent-icon-links",
-      "agilent-news-grid",
-      "agilent-product-carousel",
-      "agilent-promo-cards",
-      "agilent-promo-tiles",
-      "agilent-quick-order",
-      "agilent-services",
-      "agilent-sustainability",
       "cards",
       "carousel",
       "columns",
@@ -49,37 +39,12 @@
       "commerce-wishlist",
       "enrichment",
       "fragment",
-      "hero",
       "image",
       "product-details",
       "product-list-page",
       "product-recommendations",
       "targeted-block",
-      "text",
-      "hero-v2",
-      "product-teaser",
-      "quote",
-      "tabs",
-      "video",
-      "catalog-menu",
-      "product-skew-reveal",
-      "pdp-highlight-stats",
-      "pdp-feature-showcase",
-      "pdp-spec-accordion",
-      "pdp-reviews",
-      "blog-post",
-      "blog-tiles",
-      "circle-carousel",
-      "hero-cta",
-      "newsletter",
-      "promotional-hero",
-      "store-locator",
-      "top-banner",
-      "company-myaccount-banner",
-      "promotional-hero-v2",
-      "product-teaser-v2",
-      "product-hero",
-      "site-nav-jg"
+      "text"
     ]
   },
   {
@@ -115,107 +80,6 @@
     "components": [
       "text",
       "image"
-    ]
-  },
-  {
-    "id": "agilent-hero",
-    "components": [
-      "agilent-hero-slide"
-    ]
-  },
-  {
-    "id": "agilent-category-grid",
-    "components": [
-      "agilent-category-grid-item"
-    ]
-  },
-  {
-    "id": "agilent-promo-tiles",
-    "components": [
-      "agilent-promo-tiles-item"
-    ]
-  },
-  {
-    "id": "agilent-promo-cards",
-    "components": [
-      "agilent-promo-cards-item"
-    ]
-  },
-  {
-    "id": "agilent-icon-links",
-    "components": [
-      "agilent-icon-links-item"
-    ]
-  },
-  {
-    "id": "agilent-services",
-    "components": [
-      "agilent-services-item"
-    ]
-  },
-  {
-    "id": "agilent-news-grid",
-    "components": [
-      "agilent-news-grid-item"
-    ]
-  },
-  {
-    "id": "agilent-product-carousel",
-    "components": [
-      "agilent-product-carousel-item"
-    ]
-  },
-  {
-    "id": "tabs",
-    "components": [
-      "tabs-item"
-    ]
-  },
-  {
-    "id": "cards-jg",
-    "components": [
-      "card-jg"
-    ]
-  },
-  {
-    "id": "pdp-feature-showcase",
-    "components": [
-      "pdp-feature-showcase-item"
-    ]
-  },
-  {
-    "id": "pdp-spec-accordion",
-    "components": [
-      "pdp-spec-accordion-item"
-    ]
-  },
-  {
-    "id": "product-skew-reveal",
-    "components": [
-      "product-skew-reveal-header",
-      "product-skew-reveal-tile"
-    ]
-  },
-  {
-    "id": "search-bar",
-    "components": []
-  },
-  {
-    "id": "circle-carousel",
-    "components": [
-      "circle-carousel-item"
-    ]
-  },
-  {
-    "id": "store-locator",
-    "components": [
-      "store-locator-item"
-    ]
-  },
-  {
-    "id": "site-nav-jg",
-    "components": [
-      "site-nav-jg-item"
     ]
   }
 ]

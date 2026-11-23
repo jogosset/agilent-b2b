@@ -346,6 +346,14 @@ header nav .nav-tools-wrapper>button {
   width: 40px;
 }
 
+header nav .nav-sections .authCombineNavElement button {
+  all: unset;
+  cursor: pointer;
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+
 header nav .nav-tools button.nav-cart-button {
   background-image: url('../../icons/cart.svg');
   background-repeat: no-repeat;
@@ -438,6 +446,11 @@ header .nav-search-panel .search-bar-result .dropin-product-item-card__content .
 
 header .nav-search-panel .search-bar-result .product-discovery-product-list__footer button {
   width: 100%;
+}
+
+header nav .nav-sections .authCombineNavElement button:focus-visible {
+  outline: 2px solid var(--color-brand-700);
+  outline-offset: 2px;
 }
 
 /* Mini Cart  */
@@ -889,61 +902,4 @@ body:has(.seller-assisted-buying-banner) {
     line-height: 1.1;
     display: inline-block;
   }
-}
-
-/* ===== Agilent brand reskin (matches the real agilent.com/en header) ===== */
-header .nav-wrapper {
-  background-color: #0085d5;
-  border-bottom: 0;
-}
-
-header nav .nav-brand a {
-  font-family: var(--type-base-font-family);
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  color: #fff;
-}
-
-/* Scoped to the top-level menu items only (.default-content-wrapper > ul > li) so this
-   doesn't also turn the dropdown-panel links white-on-white — those panels keep their
-   normal dark-on-white dropin styling. Top-level nav-drop items render their label in a
-   <p>, not an <a>, so both need covering. */
-header nav .nav-sections .default-content-wrapper > ul > li > a,
-header nav .nav-sections .default-content-wrapper > ul > li > p,
-header nav .nav-sections .default-content-wrapper > ul > li > p > a,
-header nav .nav-hamburger button,
-header nav .nav-tools-wrapper > button {
-  color: #fff;
-}
-
-header nav .nav-sections .default-content-wrapper > ul > li > a:hover,
-header nav .nav-sections .default-content-wrapper > ul > li > p > a:hover,
-header nav .nav-sections .default-content-wrapper > ul > li.nav-drop:hover {
-  color: #d8ecfb;
-}
-
-/* The tools bar (cart/wishlist/search/account) inherited a white background from the
-   base theme, which combined with white icons made them invisible. Let it show the blue
-   header behind it instead — the flyout panels (.nav-tools-panel) keep their own explicit
-   white background for their content. */
-header nav .nav-tools {
-  background: transparent;
-}
-
-header nav .nav-tools button.nav-cart-button,
-header nav .nav-tools button.nav-search-button,
-header nav .nav-tools button.nav-wishlist-button {
-  filter: brightness(0) invert(1);
-}
-
-/* The account icon is an inline SVG with a hardcoded black stroke (not currentColor),
-   so the color rule above can't reach it — invert it the same way as the other icons. */
-header nav .nav-tools-wrapper > button svg {
-  filter: brightness(0) invert(1);
-}
-
-header .nav-search-panel input[type='search'],
-header .nav-search-panel input[type='text'] {
-  font-family: var(--type-base-font-family);
-  font-size: 1.4rem;
 }

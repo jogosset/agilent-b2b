@@ -1,13 +1,4 @@
-.git/**
-.github/**
-.husky/**
-.eslintrc.js
-.eslintignore
-.stylelintrc.json
-.renovaterc.json
-.npmrc
-.editorconfig
-.env
+.*
 *.md
 *.d.ts
 *.map
@@ -23,3 +14,4 @@ tools/picker/src/*
 tools/pdp-metadata/*
 plugins/experimentation/documentation/images/*
 _*.json
+sync-block-collection.sh

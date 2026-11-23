@@ -184,30 +184,11 @@ function decorateButtons(main) {
  * Decorates the main element.
  * @param {Element} main The main element
  */
-/**
- * Activate the boilerplate's authored column layout (Demo Builder thin-layer patch).
- * The account page authors a 30%/70% split via Section Metadata (data-column-width),
- * but the boilerplate only lays sections into a row when body.columns is set and each
- * section carries the --column-width var, and nothing translates the authored attribute.
- * Feed data-column-width into --column-width and switch on body.columns so the existing
- * `body.columns main > .section { flex-basis: var(--column-width) }` rule renders the
- * sidebar layout (mobile stacks below 900px). Layout only - no styling.
- */
-function decorateColumnSections(main) {
-  const columns = main.querySelectorAll(':scope > .section[data-column-width]');
-  if (!columns.length) return;
-  columns.forEach((section) => {
-    section.style.setProperty('--column-width', section.dataset.columnWidth);
-  });
-  document.body.classList.add('columns');
-}
-
 export function decorateMain(main) {
   decorateLinks(main);
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
-  decorateColumnSections(main);
   decorateBlocks(main);
   decorateButtons(main);
 }
@@ -232,13 +213,7 @@ async function loadEager(doc) {
       loadErrorPage(418);
     }
     document.body.classList.add('appear');
-    await loadSection(main.querySelector('.section'), (section) => {
-      // === Quick Edit first-paint guard (Demo Builder) ===
-      // The Experience Workspace canvas stalls the first paint if loadSection
-      // blocks on waitForFirstImage in quick-edit mode; skip the wait there.
-      if (document.body.classList.contains('quick-edit')) return Promise.resolve();
-      return waitForFirstImage(section);
-    });
+    await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
 
   try {
@@ -256,24 +231,7 @@ async function loadEager(doc) {
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
-  // === Quick Edit Sidekick listener (Demo Builder) ===
-  const loadQuickEdit = async (...args) => {
-    // eslint-disable-next-line import/no-cycle
-    const { default: initQuickEdit } = await import('../tools/quick-edit/quick-edit.js');
-    initQuickEdit(...args);
-  };
-  const addQuickEditSidekickListeners = (sk) => {
-    sk.addEventListener('custom:quick-edit', loadQuickEdit);
-  };
-  const quickEditSidekick = document.querySelector('aem-sidekick');
-  if (quickEditSidekick) {
-    addQuickEditSidekickListeners(quickEditSidekick);
-  } else {
-    document.addEventListener('sidekick-ready', () => {
-      addQuickEditSidekickListeners(document.querySelector('aem-sidekick'));
-    }, { once: true });
-  }
-  loadHeader(doc.querySelector('header'));
+  loadHeader(doc.querySelector('body > header'));
 
   const main = doc.querySelector('main');
   await loadSections(main);
@@ -282,9 +240,9 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
-  loadFooter(doc.querySelector('footer'));
+  loadFooter(doc.querySelector('body > footer'));
 
-  loadCommerceLazy();
+  await loadCommerceLazy();
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
@@ -295,11 +253,11 @@ async function loadLazy(doc) {
  * without impacting the user experience.
  */
 function loadDelayed() {
-  window.setTimeout(() => import('./delayed.js'), 3000);
+  import('./consent-check.js');
   // load anything that can be postponed to the latest here
 }
 
-export async function loadPage() {
+async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
@@ -312,14 +270,6 @@ if (IS_UE) {
 }
 
 loadPage();
-
-// === Quick Edit dynamic import (Demo Builder) ===
-(() => {
-  const hasQE = new URL(window.location.href).searchParams.has('quick-edit');
-  // eslint-disable-next-line import/no-cycle
-  if (hasQE) import('../tools/quick-edit/quick-edit.js').then((mod) => mod.default());
-})();
-// === end Quick Edit dynamic import ===
 
 (async function loadDa() {
   if (!IS_DA) return;
