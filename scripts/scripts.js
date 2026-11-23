@@ -213,13 +213,7 @@ async function loadEager(doc) {
       loadErrorPage(418);
     }
     document.body.classList.add('appear');
-    await loadSection(main.querySelector('.section'), (section) => {
-      // === Quick Edit first-paint guard (Demo Builder) ===
-      // The Experience Workspace canvas stalls the first paint if loadSection
-      // blocks on waitForFirstImage in quick-edit mode; skip the wait there.
-      if (document.body.classList.contains('quick-edit')) return Promise.resolve();
-      return waitForFirstImage(section);
-    });
+    await loadSection(main.querySelector('.section'), waitForFirstImage);
   }
 
   try {
@@ -237,23 +231,6 @@ async function loadEager(doc) {
  * @param {Element} doc The container element
  */
 async function loadLazy(doc) {
-  // === Quick Edit Sidekick listener (Demo Builder) ===
-  const loadQuickEdit = async (...args) => {
-    // eslint-disable-next-line import/no-cycle
-    const { default: initQuickEdit } = await import('../tools/quick-edit/quick-edit.js');
-    initQuickEdit(...args);
-  };
-  const addQuickEditSidekickListeners = (sk) => {
-    sk.addEventListener('custom:quick-edit', loadQuickEdit);
-  };
-  const quickEditSidekick = document.querySelector('aem-sidekick');
-  if (quickEditSidekick) {
-    addQuickEditSidekickListeners(quickEditSidekick);
-  } else {
-    document.addEventListener('sidekick-ready', () => {
-      addQuickEditSidekickListeners(document.querySelector('aem-sidekick'));
-    }, { once: true });
-  }
   loadHeader(doc.querySelector('body > header'));
 
   const main = doc.querySelector('main');
@@ -280,7 +257,7 @@ function loadDelayed() {
   // load anything that can be postponed to the latest here
 }
 
-export async function loadPage() {
+async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
@@ -293,14 +270,6 @@ if (IS_UE) {
 }
 
 loadPage();
-
-// === Quick Edit dynamic import (Demo Builder) ===
-(() => {
-  const hasQE = new URL(window.location.href).searchParams.has('quick-edit');
-  // eslint-disable-next-line import/no-cycle
-  if (hasQE) import('../tools/quick-edit/quick-edit.js').then((mod) => mod.default());
-})();
-// === end Quick Edit dynamic import ===
 
 (async function loadDa() {
   if (!IS_DA) return;
